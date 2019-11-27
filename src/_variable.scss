@@ -4,6 +4,33 @@ $breakpoints: (
 	"s": 640px
 );
 
+$widths: (
+	"xxl": 1000px,
+	"xl": 800px,
+	"l": 500px,
+	"m": 300px,
+	"s": 150px,
+	"xs": 50px
+);
+
+$responsive-width-classes: ("l", "m");
+
+$proportional_widths: (
+	"1-2": 50%,
+	"1-3": 33.333%,
+	"1-4": 25%,
+);
+
+$responsive-proportional-width-classes: ("1-2", "1-3", "1-4");
+
+$heights: (
+	"l": 500px,
+	"m": 250px,
+	"s": 100px,
+);
+
+$responsive-height-classes: ("l", "m");
+
 $font-sizes: (
 	"l": 36px,
 	"m": 22px,

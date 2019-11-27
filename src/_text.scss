@@ -1,3 +1,5 @@
+// Text Sizes
+
 @each $name, $value in $font-sizes {
   .text-#{$name} {
   	font-size: $value;
@@ -14,6 +16,8 @@
 	}
 }
 
+// Text colour
+
 @each $name, $value in $colors {
   .color-#{$name} {
   	color: $value;
@@ -29,3 +33,9 @@
 		}
 	}
 }
+
+// Text Utility
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }

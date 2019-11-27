@@ -1,3 +1,55 @@
+// Dimensions
+
+@each $name, $value in $widths {
+  .width-#{$name} {
+  	max-width: $value;
+  }
+}
+
+@each $name in $responsive-width-classes {
+	@each $breakpoint_label, $breakpoint_value in $breakpoints {
+		@media (min-width: $breakpoint_value){
+			.width-#{$name}\@#{$breakpoint_label} {
+				max-width: map-get($widths, $name);
+			}
+		}
+	}
+}
+
+@each $name, $value in $proportional_widths {
+  .width-#{$name} {
+  	width: $value;
+  }
+}
+
+@each $name in $responsive-proportional-width-classes {
+	@each $breakpoint_label, $breakpoint_value in $breakpoints {
+		@media (min-width: $breakpoint_value){
+			.width-#{$name}\@#{$breakpoint_label} {
+				width: map-get($proportional_widths, $name);
+			}
+		}
+	}
+}
+
+@each $name, $value in $heights {
+  .height-#{$name} {
+  	height: $value;
+  }
+}
+
+@each $name in $responsive-height-classes {
+	@each $breakpoint_label, $breakpoint_value in $breakpoints {
+		@media (min-width: $breakpoint_value){
+			.height-#{$name}\@#{$breakpoint_label} {
+				height: map-get($heights, $name);
+			}
+		}
+	}
+}
+
+// Backgrounds
+
 @each $name, $value in $colors {
   .background-#{$name} {
   	background-color: $value;
@@ -12,4 +64,11 @@
 			}
 		}
 	}
+}
+
+// Utility
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
 }
