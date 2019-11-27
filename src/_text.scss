@@ -7,7 +7,7 @@
 @each $name in $responsive-font-sizes-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.text-#{$name}\-#{$breakpoint_label} {
+			.text-#{$name}\@#{$breakpoint_label} {
 				font-size: map-get($font-sizes, $name);
 			}
 		}
@@ -23,7 +23,7 @@
 @each $name in $responsive-color-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.color-#{$name}\-#{$breakpoint_label} {
+			.color-#{$name}\@#{$breakpoint_label} {
 				color: map-get($colors, $name);
 			}
 		}

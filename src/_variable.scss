@@ -20,3 +20,13 @@ $colors: (
 );
 
 $responsive-color-classes: ();
+
+$margins: (
+	"l": 100px,
+	"m": 50px,
+	"s": 15px
+);
+
+$locations: ("top", "right", "bottom", "left");
+
+$responsive-margin-classes: ();

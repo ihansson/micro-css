@@ -31,22 +31,22 @@ dt, dd, blockquote, address {
   font-size: 16px; }
 
 @media (min-width: 1200px) {
-  .text-l-l {
+  .text-l\@l {
     font-size: 36px; } }
 @media (min-width: 900px) {
-  .text-l-m {
+  .text-l\@m {
     font-size: 36px; } }
 @media (min-width: 640px) {
-  .text-l-s {
+  .text-l\@s {
     font-size: 36px; } }
 @media (min-width: 1200px) {
-  .text-m-l {
+  .text-m\@l {
     font-size: 22px; } }
 @media (min-width: 900px) {
-  .text-m-m {
+  .text-m\@m {
     font-size: 22px; } }
 @media (min-width: 640px) {
-  .text-m-s {
+  .text-m\@s {
     font-size: 22px; } }
 .color-primary {
   color: blue; }
@@ -59,5 +59,50 @@ dt, dd, blockquote, address {
 
 .color-dark {
   color: black; }
+
+.margin-l {
+  margin: 100px; }
+
+.margin-top-l {
+  margin-top: 100px; }
+
+.margin-right-l {
+  margin-right: 100px; }
+
+.margin-bottom-l {
+  margin-bottom: 100px; }
+
+.margin-left-l {
+  margin-left: 100px; }
+
+.margin-m {
+  margin: 50px; }
+
+.margin-top-m {
+  margin-top: 50px; }
+
+.margin-right-m {
+  margin-right: 50px; }
+
+.margin-bottom-m {
+  margin-bottom: 50px; }
+
+.margin-left-m {
+  margin-left: 50px; }
+
+.margin-s {
+  margin: 15px; }
+
+.margin-top-s {
+  margin-top: 15px; }
+
+.margin-right-s {
+  margin-right: 15px; }
+
+.margin-bottom-s {
+  margin-bottom: 15px; }
+
+.margin-left-s {
+  margin-left: 15px; }
 
 /*# sourceMappingURL=micro.css.map */
