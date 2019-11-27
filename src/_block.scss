@@ -1,9 +1,61 @@
 // Dimensions
 
+@each $name, $value in $proportional_widths {
+	.child-width-#{$name} > * {
+		width: $value;
+	}
+	@each $gutter_label, $gutter_value in $gutters {
+		.grid-#{$gutter_label}.child-width-#{$name} > * {
+			width: calc(#{$value} - #{$gutter_value});
+		}
+	}
+}
+
+@each $name in $responsive-proportional-width-classes {
+	@each $breakpoint_label, $breakpoint_value in $breakpoints {
+		@media (min-width: $breakpoint_value){
+			.child-width-#{$name}\@#{$breakpoint_label} > * {
+				width: map-get($proportional_widths, $name);
+			}
+			@each $gutter_label, $gutter_value in $gutters {
+				.grid-#{$gutter_label}.child-width-#{$name}\@#{$breakpoint_label} > * {
+					width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
+				}
+			}
+		}
+	}
+}
+
+@each $name, $value in $proportional_widths {
+	.width-#{$name} {
+		width: $value;
+	}
+	@each $gutter_label, $gutter_value in $gutters {
+		.grid-#{$gutter_label} .width-#{$name} {
+			width: calc(#{$value} - #{$gutter_value});
+		}
+	}
+}
+
+@each $name in $responsive-proportional-width-classes {
+	@each $breakpoint_label, $breakpoint_value in $breakpoints {
+		@media (min-width: $breakpoint_value){
+			.width-#{$name}\@#{$breakpoint_label} {
+				width: map-get($proportional_widths, $name);
+			}
+			@each $gutter_label, $gutter_value in $gutters {
+				.grid-#{$gutter_label} .width-#{$name}\@#{$breakpoint_label} {
+					width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
+				}
+			}
+		}
+	}
+}
+
 @each $name, $value in $widths {
-  .width-#{$name} {
-  	max-width: $value;
-  }
+	.width-#{$name} {
+		max-width: $value;
+	}
 }
 
 @each $name in $responsive-width-classes {
@@ -16,26 +68,10 @@
 	}
 }
 
-@each $name, $value in $proportional_widths {
-  .width-#{$name} {
-  	width: $value;
-  }
-}
-
-@each $name in $responsive-proportional-width-classes {
-	@each $breakpoint_label, $breakpoint_value in $breakpoints {
-		@media (min-width: $breakpoint_value){
-			.width-#{$name}\@#{$breakpoint_label} {
-				width: map-get($proportional_widths, $name);
-			}
-		}
-	}
-}
-
 @each $name, $value in $heights {
-  .height-#{$name} {
-  	height: $value;
-  }
+	.height-#{$name} {
+		height: $value;
+	}
 }
 
 @each $name in $responsive-height-classes {
@@ -51,9 +87,9 @@
 // Backgrounds
 
 @each $name, $value in $colors {
-  .background-#{$name} {
-  	background-color: $value;
-  }
+	.background-#{$name} {
+		background-color: $value;
+	}
 }
 
 @each $name in $responsive-color-classes {
