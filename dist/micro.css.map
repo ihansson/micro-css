@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAK;EACH,KAAK,ECDD,GAAG",
+"sources": ["../src/_text.scss","../src/_variables.scss"],
+"names": [],
+"file": "micro.css"
+}

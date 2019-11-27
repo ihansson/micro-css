@@ -1,0 +1,25 @@
+{
+  "name": "micro-css",
+  "version": "0.0.1",
+  "description": "A tiny css framework for simple sites",
+  "main": "src/import.scss",
+  "scripts": {
+  	"watch": "sass src/import.scss:dist/micro.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihansson/micro-css.git"
+  },
+  "keywords": [
+    "css",
+    "grid",
+    "flex"
+  ],
+  "author": "Ian Hansson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ihansson/micro-css/issues"
+  },
+  "homepage": "https://github.com/ihansson/micro-css#readme"
+}
