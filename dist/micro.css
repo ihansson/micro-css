@@ -1,4 +1,63 @@
-.red {
-  color: red; }
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, dl,
+dt, dd, blockquote, address {
+  margin: 0;
+  padding: 0; }
+
+.background-primary {
+  background-color: blue; }
+
+.background-secondary {
+  background-color: green; }
+
+.background-light {
+  background-color: white; }
+
+.background-dark {
+  background-color: black; }
+
+.text-l {
+  font-size: 36px; }
+
+.text-m {
+  font-size: 22px; }
+
+.text-s {
+  font-size: 16px; }
+
+@media (min-width: 1200px) {
+  .text-l-l {
+    font-size: 36px; } }
+@media (min-width: 900px) {
+  .text-l-m {
+    font-size: 36px; } }
+@media (min-width: 640px) {
+  .text-l-s {
+    font-size: 36px; } }
+@media (min-width: 1200px) {
+  .text-m-l {
+    font-size: 22px; } }
+@media (min-width: 900px) {
+  .text-m-m {
+    font-size: 22px; } }
+@media (min-width: 640px) {
+  .text-m-s {
+    font-size: 22px; } }
+.color-primary {
+  color: blue; }
+
+.color-secondary {
+  color: green; }
+
+.color-light {
+  color: white; }
+
+.color-dark {
+  color: black; }
 
 /*# sourceMappingURL=micro.css.map */

@@ -1,0 +1,22 @@
+$breakpoints: (
+	"l": 1200px,
+	"m": 900px,
+	"s": 640px
+);
+
+$font-sizes: (
+	"l": 36px,
+	"m": 22px,
+	"s": 16px
+);
+
+$responsive-font-sizes-classes: ("l", "m");
+
+$colors: (
+	"primary": blue,
+	"secondary": green,
+	"light": white,
+	"dark": black
+);
+
+$responsive-color-classes: ();
