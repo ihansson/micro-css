@@ -89,6 +89,7 @@
 @each $name, $value in $colors {
 	.bg-#{$name} {
 		background-color: $value;
+		color: map-get($background-text-color, $name);
 	}
 }
 
@@ -97,9 +98,18 @@
 		@media (min-width: $breakpoint_value){
 			.bg-#{$name}\@#{$breakpoint_label} {
 				background-color: map-get($colors, $name);
+				color: map-get($background-text-color, $name);
 			}
 		}
 	}
+}
+
+// Box Styles
+
+.box {
+	box-shadow: $global-box-shadow;
+	border-radius: $global-box-radius;
+	padding: $global-box-padding;
 }
 
 // Utility

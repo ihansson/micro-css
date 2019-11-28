@@ -63,6 +63,13 @@ $colors: (
 
 $responsive-color-classes: ();
 
+$background-text-color: (
+	"primary": map-get($colors, 'light'),
+	"secondary": map-get($colors, 'light'),
+	"light": map-get($colors, 'dark'),
+	"dark": map-get($colors, 'light')
+);
+
 // Font Sizes
 
 $font-sizes: (
@@ -78,3 +85,13 @@ $responsive-font-sizes-classes: ();
 $global-font: 'Lexend Deca', sans-serif;
 $global-font-size: map-get($font-sizes, "s");
 $global-line-height: 1.75em;
+
+// Buttons
+
+$global-button-padding: 6px 12px;
+
+// Boxes
+
+$global-box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12);
+$global-box-radius: 6px;
+$global-box-padding: map-get($spacing, "s") (map-get($spacing, "s") * 1.5);

@@ -257,16 +257,25 @@ h1, h2, h3, h4, h5, h6 {
   height: 100px; }
 
 .bg-primary {
-  background-color: blue; }
+  background-color: blue;
+  color: white; }
 
 .bg-secondary {
-  background-color: green; }
+  background-color: green;
+  color: white; }
 
 .bg-light {
-  background-color: white; }
+  background-color: white;
+  color: black; }
 
 .bg-dark {
-  background-color: black; }
+  background-color: black;
+  color: white; }
+
+.box {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  padding: 15px 22.5px; }
 
 .container {
   margin-left: auto;
@@ -290,6 +299,9 @@ body {
   font-size: 16px;
   line-height: 1.75em; }
 
+a {
+  color: inherit; }
+
 .text-l {
   font-size: 36px; }
 
@@ -310,6 +322,27 @@ body {
 
 .color-dark {
   color: black; }
+
+.btn {
+  text-decoration: none;
+  line-height: 1em;
+  padding: 6px 12px; }
+
+.btn-primary {
+  background-color: blue;
+  color: white; }
+
+.btn-secondary {
+  background-color: green;
+  color: white; }
+
+.btn-light {
+  background-color: white;
+  color: black; }
+
+.btn-dark {
+  background-color: black;
+  color: white; }
 
 .text-left {
   text-align: left; }

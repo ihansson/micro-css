@@ -6,6 +6,10 @@ body {
 	line-height: $global-line-height;
 }
 
+a {
+	color: inherit;
+}
+
 // Text Sizes
 
 @each $name, $value in $font-sizes {
@@ -39,6 +43,21 @@ body {
 				color: map-get($colors, $name);
 			}
 		}
+	}
+}
+
+// Buttons
+
+.btn {
+	text-decoration: none;
+	line-height: 1em;
+	padding: $global-button-padding;
+}
+
+@each $name, $value in $colors {
+	.btn-#{$name} {
+		background-color: $value;
+		color: map-get($background-text-color, $name);
 	}
 }
 
