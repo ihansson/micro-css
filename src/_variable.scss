@@ -1,3 +1,28 @@
+$prefix: '';
+
+// Optional
+
+$optional: (
+
+	'reset': true,
+	'global': true,
+
+	'grid': true,
+	'grid-reverse': true,
+
+	'box': true,
+	'container': true,
+
+	'clearfix': true,
+
+	'btn': true,
+
+	'text-left': true,
+	'text-right': true,
+	'text-center': true
+
+);
+
 // Breakpoints
 
 $breakpoints: (

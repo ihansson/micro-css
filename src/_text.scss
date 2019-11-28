@@ -1,61 +1,23 @@
-// Global
-
-body {
-	font-family: $global-font;
-	font-size: $global-font-size;
-	line-height: $global-line-height;
-}
-
-a {
-	color: inherit;
-}
-
 // Text Sizes
 
-@each $name, $value in $font-sizes {
-  .text-#{$name} {
-  	font-size: $value;
-  }
-}
-
-@each $name in $responsive-font-sizes-classes {
-	@each $breakpoint_label, $breakpoint_value in $breakpoints {
-		@media (min-width: $breakpoint_value){
-			.text-#{$name}\@#{$breakpoint_label} {
-				font-size: map-get($font-sizes, $name);
-			}
-		}
-	}
-}
+@include map-class('text', 'font-size', $font-sizes);
+@include map-class-responsive('text', 'font-size', $font-sizes, $responsive-font-sizes-classes);
 
 // Text colour
 
-@each $name, $value in $colors {
-  .color-#{$name} {
-  	color: $value;
-  }
-}
-
-@each $name in $responsive-color-classes {
-	@each $breakpoint_label, $breakpoint_value in $breakpoints {
-		@media (min-width: $breakpoint_value){
-			.color-#{$name}\@#{$breakpoint_label} {
-				color: map-get($colors, $name);
-			}
-		}
-	}
-}
+@include map-class('color', 'color', $colors);
+@include map-class-responsive('color', 'color', $colors, $responsive-color-classes);
 
 // Buttons
 
-.btn {
+@include optional('btn') {
 	text-decoration: none;
 	line-height: 1em;
 	padding: $global-button-padding;
 }
 
 @each $name, $value in $colors {
-	.btn-#{$name} {
+	.#{$prefix}btn-#{$name} {
 		background-color: $value;
 		color: map-get($background-text-color, $name);
 	}
@@ -63,6 +25,8 @@ a {
 
 // Text Utility
 
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.text-center { text-align: center; }
+@each $direction in ('left', 'right', 'center') {
+	@include optional('text-'+$direction) {
+		text-align: #{$direction};
+	}
+}

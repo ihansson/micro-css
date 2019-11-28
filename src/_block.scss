@@ -1,11 +1,17 @@
 // Dimensions
 
 @each $name, $value in $proportional_widths {
-	.cw-#{$name} > * {
+	.#{$prefix}cw-#{$name} > * {
+		width: $value;
+	}
+	.#{$prefix}w-#{$name} {
 		width: $value;
 	}
 	@each $gutter_label, $gutter_value in $gutters {
-		.grid-#{$gutter_label}.cw-#{$name} > * {
+		.#{$prefix}grid-#{$gutter_label}.#{$prefix}cw-#{$name} > * {
+			width: calc(#{$value} - #{$gutter_value});
+		}
+		.#{$prefix}grid-#{$gutter_label} .#{$prefix}w-#{$name} {
 			width: calc(#{$value} - #{$gutter_value});
 		}
 	}
@@ -14,11 +20,17 @@
 @each $name in $responsive-proportional-width-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.cw-#{$name}\@#{$breakpoint_label} > * {
+			.#{$prefix}cw-#{$name}\@#{$breakpoint_label} > * {
+				width: map-get($proportional_widths, $name);
+			}
+			.#{$prefix}w-#{$name}\@#{$breakpoint_label} {
 				width: map-get($proportional_widths, $name);
 			}
 			@each $gutter_label, $gutter_value in $gutters {
-				.grid-#{$gutter_label}.cw-#{$name}\@#{$breakpoint_label} > * {
+				.#{$prefix}grid-#{$gutter_label}.#{$prefix}cw-#{$name}\@#{$breakpoint_label} > * {
+					width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
+				}
+				.#{$prefix}grid-#{$gutter_label} .#{$prefix}w-#{$name}\@#{$breakpoint_label} {
 					width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
 				}
 			}
@@ -26,68 +38,16 @@
 	}
 }
 
-@each $name, $value in $proportional_widths {
-	.w-#{$name} {
-		width: $value;
-	}
-	@each $gutter_label, $gutter_value in $gutters {
-		.grid-#{$gutter_label} .w-#{$name} {
-			width: calc(#{$value} - #{$gutter_value});
-		}
-	}
-}
+@include map-class('w', 'max-width', $widths);
+@include map-class-responsive('w', 'max-width', $widths, $responsive-width-classes);
 
-@each $name in $responsive-proportional-width-classes {
-	@each $breakpoint_label, $breakpoint_value in $breakpoints {
-		@media (min-width: $breakpoint_value){
-			.w-#{$name}\@#{$breakpoint_label} {
-				width: map-get($proportional_widths, $name);
-			}
-			@each $gutter_label, $gutter_value in $gutters {
-				.grid-#{$gutter_label} .w-#{$name}\@#{$breakpoint_label} {
-					width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
-				}
-			}
-		}
-	}
-}
-
-@each $name, $value in $widths {
-	.w-#{$name} {
-		max-width: $value;
-	}
-}
-
-@each $name in $responsive-width-classes {
-	@each $breakpoint_label, $breakpoint_value in $breakpoints {
-		@media (min-width: $breakpoint_value){
-			.w-#{$name}\@#{$breakpoint_label} {
-				max-width: map-get($widths, $name);
-			}
-		}
-	}
-}
-
-@each $name, $value in $heights {
-	.h-#{$name} {
-		height: $value;
-	}
-}
-
-@each $name in $responsive-height-classes {
-	@each $breakpoint_label, $breakpoint_value in $breakpoints {
-		@media (min-width: $breakpoint_value){
-			.h-#{$name}\@#{$breakpoint_label} {
-				height: map-get($heights, $name);
-			}
-		}
-	}
-}
+@include map-class('h', 'height', $heights);
+@include map-class-responsive('h', 'height', $heights, $responsive-height-classes);
 
 // Backgrounds
 
 @each $name, $value in $colors {
-	.bg-#{$name} {
+	.#{$prefix}bg-#{$name} {
 		background-color: $value;
 		color: map-get($background-text-color, $name);
 	}
@@ -96,7 +56,7 @@
 @each $name in $responsive-color-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.bg-#{$name}\@#{$breakpoint_label} {
+			.#{$prefix}bg-#{$name}\@#{$breakpoint_label} {
 				background-color: map-get($colors, $name);
 				color: map-get($background-text-color, $name);
 			}
@@ -106,7 +66,7 @@
 
 // Box Styles
 
-.box {
+@include optional('box') {
 	box-shadow: $global-box-shadow;
 	border-radius: $global-box-radius;
 	padding: $global-box-padding;
@@ -114,17 +74,19 @@
 
 // Utility
 
-.container {
+@include optional('container') {
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.clear:before,
-.clear:after {
-  content: ".";    
-  display: block;    
-  height: 0;    
-  overflow: hidden;        
+@include optional('clearfix') {
+	zoom: 1;
+	&:before,
+	&:after {
+		content: ".";    
+		display: block;    
+		height: 0;    
+		overflow: hidden;  
+	}
+	&:after { clear: both; }
 }
-.clear:after { clear: both; }
-.clear { zoom: 1 ;}

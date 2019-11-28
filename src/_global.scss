@@ -1,0 +1,11 @@
+@if map-get($optional, 'global') == true {
+	body {
+		font-family: $global-font;
+		font-size: $global-font-size;
+		line-height: $global-line-height;
+	}
+
+	a {
+		color: inherit;
+	}
+}
