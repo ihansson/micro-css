@@ -9,6 +9,9 @@ dt, dd, blockquote, address {
   margin: 0;
   padding: 0; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit; }
+
 .child-width-1-2 > * {
   width: 50%; }
 
@@ -243,24 +246,6 @@ dt, dd, blockquote, address {
 .width-xs {
   max-width: 50px; }
 
-@media (min-width: 1200px) {
-  .width-l\@l {
-    max-width: 500px; } }
-@media (min-width: 900px) {
-  .width-l\@m {
-    max-width: 500px; } }
-@media (min-width: 640px) {
-  .width-l\@s {
-    max-width: 500px; } }
-@media (min-width: 1200px) {
-  .width-m\@l {
-    max-width: 300px; } }
-@media (min-width: 900px) {
-  .width-m\@m {
-    max-width: 300px; } }
-@media (min-width: 640px) {
-  .width-m\@s {
-    max-width: 300px; } }
 .height-l {
   height: 500px; }
 
@@ -270,24 +255,6 @@ dt, dd, blockquote, address {
 .height-s {
   height: 100px; }
 
-@media (min-width: 1200px) {
-  .height-l\@l {
-    height: 500px; } }
-@media (min-width: 900px) {
-  .height-l\@m {
-    height: 500px; } }
-@media (min-width: 640px) {
-  .height-l\@s {
-    height: 500px; } }
-@media (min-width: 1200px) {
-  .height-m\@l {
-    height: 250px; } }
-@media (min-width: 900px) {
-  .height-m\@m {
-    height: 250px; } }
-@media (min-width: 640px) {
-  .height-m\@s {
-    height: 250px; } }
 .background-primary {
   background-color: blue; }
 
@@ -304,6 +271,11 @@ dt, dd, blockquote, address {
   margin-left: auto;
   margin-right: auto; }
 
+body {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 16px;
+  line-height: 1.75em; }
+
 .text-l {
   font-size: 36px; }
 
@@ -313,24 +285,6 @@ dt, dd, blockquote, address {
 .text-s {
   font-size: 16px; }
 
-@media (min-width: 1200px) {
-  .text-l\@l {
-    font-size: 36px; } }
-@media (min-width: 900px) {
-  .text-l\@m {
-    font-size: 36px; } }
-@media (min-width: 640px) {
-  .text-l\@s {
-    font-size: 36px; } }
-@media (min-width: 1200px) {
-  .text-m\@l {
-    font-size: 22px; } }
-@media (min-width: 900px) {
-  .text-m\@m {
-    font-size: 22px; } }
-@media (min-width: 640px) {
-  .text-m\@s {
-    font-size: 22px; } }
 .color-primary {
   color: blue; }
 

@@ -1,8 +1,12 @@
+// Breakpoints
+
 $breakpoints: (
 	"l": 1200px,
 	"m": 900px,
 	"s": 640px
 );
+
+// Grid and Dimensions
 
 $gutters: (
 	's': 15px,
@@ -18,7 +22,7 @@ $widths: (
 	"xs": 50px
 );
 
-$responsive-width-classes: ("l", "m");
+$responsive-width-classes: ();
 
 $proportional_widths: (
 	"1-2": 50%,
@@ -34,24 +38,9 @@ $heights: (
 	"s": 100px,
 );
 
-$responsive-height-classes: ("l", "m");
+$responsive-height-classes: ();
 
-$font-sizes: (
-	"l": 36px,
-	"m": 22px,
-	"s": 16px
-);
-
-$responsive-font-sizes-classes: ("l", "m");
-
-$colors: (
-	"primary": blue,
-	"secondary": green,
-	"light": white,
-	"dark": black
-);
-
-$responsive-color-classes: ();
+// Margins
 
 $margins: (
 	"l": 100px,
@@ -62,3 +51,30 @@ $margins: (
 $locations: ("top", "right", "bottom", "left");
 
 $responsive-margin-classes: ();
+
+// Colors
+
+$colors: (
+	"primary": blue,
+	"secondary": green,
+	"light": white,
+	"dark": black
+);
+
+$responsive-color-classes: ();
+
+// Font Sizes
+
+$font-sizes: (
+	"l": 36px,
+	"m": 22px,
+	"s": 16px
+);
+
+$responsive-font-sizes-classes: ();
+
+// Default Typography
+
+$global-font: 'Lexend Deca', sans-serif;
+$global-font-size: map-get($font-sizes, "s");
+$global-line-height: 1.75em;
