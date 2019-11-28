@@ -1,23 +1,35 @@
-@each $name, $value in $margins {
+@each $name, $value in $spacing {
 	.margin-#{$name} {
-		margin: $value;
+		margin: $value 0;
+	}
+	.padding-#{$name} {
+		padding: $value 0;
 	}
 	@each $location in $locations {
 		.margin-#{$location}-#{$name} {
 			margin-#{$location}: $value;
 		}
+		.padding-#{$location}-#{$name} {
+			padding-#{$location}: $value;
+		}
 	}
 }
 
-@each $name in $responsive-margin-classes {
+@each $name in $responsive-spacing-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
 			.margin-#{$name}\@#{$breakpoint_label} {
-				margin: map-get($margins, $name);
+				margin: map-get($spacing, $name);
+			}
+			.padding-#{$name}\@#{$breakpoint_label} {
+				padding: map-get($spacing, $name);
 			}
 			@each $location in $locations {
 				.margin-#{$location}-#{$name}\@#{$breakpoint_label} {
-					margin-#{$location}: map-get($margins, $name);
+					margin-#{$location}: map-get($spacing, $name);
+				}
+				.padding-#{$location}-#{$name}\@#{$breakpoint_label} {
+					padding-#{$location}: map-get($spacing, $name);
 				}
 			}
 		}
