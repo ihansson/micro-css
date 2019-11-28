@@ -1,4 +1,4 @@
-// Dimensions
+// Height and Width
 
 @each $name, $value in $proportional_widths {
 	.#{$prefix}cw-#{$name} > * {
@@ -44,6 +44,69 @@
 @include map-class('h', 'height', $heights);
 @include map-class-responsive('h', 'height', $heights, $responsive-height-classes);
 
+// Margin & Padding
+
+@each $name, $value in $spacing {
+	.#{$prefix}mrg-#{$name} {
+		margin: $value 0;
+	}
+	.#{$prefix}pad-#{$name} {
+		padding: $value;
+	}
+	@each $location in $locations {
+		.#{$prefix}mrg-#{$location}-#{$name} {
+			margin-#{$location}: $value;
+		}
+		.#{$prefix}pad-#{$location}-#{$name} {
+			padding-#{$location}: $value;
+		}
+	}
+}
+
+@each $name in $responsive-spacing-classes {
+	@each $breakpoint_label, $breakpoint_value in $breakpoints {
+		@media (min-width: $breakpoint_value){
+			.#{$prefix}mrg-#{$name}\@#{$breakpoint_label} {
+				margin: map-get($spacing, $name) 0;
+			}
+			.#{$prefix}pad-#{$name}\@#{$breakpoint_label} {
+				padding: map-get($spacing, $name);
+			}
+			@each $location in $locations {
+				.#{$prefix}mrg-#{$location}-#{$name}\@#{$breakpoint_label} {
+					margin-#{$location}: map-get($spacing, $name);
+				}
+				.#{$prefix}pad-#{$location}-#{$name}\@#{$breakpoint_label} {
+					padding-#{$location}: map-get($spacing, $name);
+				}
+			}
+		}
+	}
+}
+
+
+// Grid
+
+@include optional('grid') {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@each $gutter_label, $gutter_value in $gutters {
+	.#{$prefix}grid-#{$gutter_label} {
+		margin-left: -#{$gutter_value};
+		margin-bottom: -#{$gutter_value};
+		> * {
+			margin-left: #{$gutter_value};
+			margin-bottom: #{$gutter_value};
+		}
+	}
+}
+
+@include optional('grid-reverse'){
+	flex-direction: row-reverse;
+}
+
 // Backgrounds
 
 @each $name, $value in $colors {
@@ -77,6 +140,7 @@
 @include optional('container') {
 	margin-left: auto;
 	margin-right: auto;
+	padding: 0 $container-padding;
 }
 
 @include optional('clearfix') {

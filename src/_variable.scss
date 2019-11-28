@@ -120,3 +120,7 @@ $global-button-padding: 6px 12px;
 $global-box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12);
 $global-box-radius: 6px;
 $global-box-padding: map-get($spacing, "s") (map-get($spacing, "s") * 1.5);
+
+// Container
+
+$container-padding: map-get($spacing, "s");
