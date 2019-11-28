@@ -462,4 +462,34 @@ a {
 .text-center {
   text-align: center; }
 
+.input, .select {
+  height: 35px;
+  border-radius: 3px;
+  border: 0px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+  padding: 4px 12px; }
+
+.checkbox, .radio {
+  position: relative;
+  display: inline-block;
+  padding-left: 29px; }
+  .checkbox .indicator, .radio .indicator {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 3px;
+    width: 24px;
+    height: 24px;
+    background: #eee; }
+
+.checkbox input[type=checkbox], .radio input[type=radio] {
+  display: none; }
+  .checkbox input[type=checkbox]:checked + .indicator, .radio input[type=radio]:checked + .indicator {
+    background: blue; }
+
+.radio .indicator {
+  border-radius: 50%; }
+
 /*# sourceMappingURL=micro.css.map */

@@ -19,7 +19,12 @@ $optional: (
 
 	'text-left': true,
 	'text-right': true,
-	'text-center': true
+	'text-center': true,
+
+	'input': true,
+	'select': true,
+	'radio': true,
+	'checkbox': true
 
 );
 
@@ -121,6 +126,18 @@ $global-box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12);
 $global-box-radius: 6px;
 $global-box-padding: map-get($spacing, "s") (map-get($spacing, "s") * 1.5);
 
+
+// Form
+
+$global-form-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12);
+$global-form-border: 0px;
+$global-form-radius: 3px;
+$global-form-padding: 4px 12px;
+$global-form-height: 35px;
+$global-form-checkbox-size: 24px;
+$global-form-checkbox-inactive: #eee;
+$global-form-checkbox-active: map-get($colors, "primary");
+
 // Container
 
-$container-padding: map-get($spacing, "s");
+$global-container-padding: map-get($spacing, "s");

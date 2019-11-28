@@ -1,0 +1,56 @@
+%input {
+	height: $global-form-height;
+	border-radius: $global-form-radius;
+	border: $global-form-border;
+	box-shadow: $global-form-shadow;
+	padding: $global-form-padding;
+}
+
+@include optional('input') {
+	@extend %input;
+}
+
+@include optional('select') {
+	@extend %input;
+}
+
+%checkbox {
+	position: relative;
+	display: inline-block;
+	padding-left: $global-form-checkbox-size + 5px;
+	.#{$prefix}indicator {
+		display: inline-block;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		border-radius: $global-form-radius;
+		width: $global-form-checkbox-size;
+		height: $global-form-checkbox-size;
+		background: $global-form-checkbox-inactive;
+	}
+}
+
+%checkbox-input {
+	display: none;
+	&:checked + .#{$prefix}indicator {
+		background: $global-form-checkbox-active;
+	}
+}
+
+@include optional('checkbox') {
+	@extend %checkbox;
+	input[type=checkbox] {
+		@extend %checkbox-input;
+	}
+}
+
+@include optional('radio') {
+	@extend %checkbox;
+	.#{$prefix}indicator {
+		border-radius: 50%;
+	}
+	input[type=radio] {
+		@extend %checkbox-input;
+	}
+}
