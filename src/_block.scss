@@ -1,11 +1,11 @@
 // Dimensions
 
 @each $name, $value in $proportional_widths {
-	.child-width-#{$name} > * {
+	.cw-#{$name} > * {
 		width: $value;
 	}
 	@each $gutter_label, $gutter_value in $gutters {
-		.grid-#{$gutter_label}.child-width-#{$name} > * {
+		.grid-#{$gutter_label}.cw-#{$name} > * {
 			width: calc(#{$value} - #{$gutter_value});
 		}
 	}
@@ -14,11 +14,11 @@
 @each $name in $responsive-proportional-width-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.child-width-#{$name}\@#{$breakpoint_label} > * {
+			.cw-#{$name}\@#{$breakpoint_label} > * {
 				width: map-get($proportional_widths, $name);
 			}
 			@each $gutter_label, $gutter_value in $gutters {
-				.grid-#{$gutter_label}.child-width-#{$name}\@#{$breakpoint_label} > * {
+				.grid-#{$gutter_label}.cw-#{$name}\@#{$breakpoint_label} > * {
 					width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
 				}
 			}
@@ -27,11 +27,11 @@
 }
 
 @each $name, $value in $proportional_widths {
-	.width-#{$name} {
+	.w-#{$name} {
 		width: $value;
 	}
 	@each $gutter_label, $gutter_value in $gutters {
-		.grid-#{$gutter_label} .width-#{$name} {
+		.grid-#{$gutter_label} .w-#{$name} {
 			width: calc(#{$value} - #{$gutter_value});
 		}
 	}
@@ -40,11 +40,11 @@
 @each $name in $responsive-proportional-width-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.width-#{$name}\@#{$breakpoint_label} {
+			.w-#{$name}\@#{$breakpoint_label} {
 				width: map-get($proportional_widths, $name);
 			}
 			@each $gutter_label, $gutter_value in $gutters {
-				.grid-#{$gutter_label} .width-#{$name}\@#{$breakpoint_label} {
+				.grid-#{$gutter_label} .w-#{$name}\@#{$breakpoint_label} {
 					width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
 				}
 			}
@@ -53,7 +53,7 @@
 }
 
 @each $name, $value in $widths {
-	.width-#{$name} {
+	.w-#{$name} {
 		max-width: $value;
 	}
 }
@@ -61,7 +61,7 @@
 @each $name in $responsive-width-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.width-#{$name}\@#{$breakpoint_label} {
+			.w-#{$name}\@#{$breakpoint_label} {
 				max-width: map-get($widths, $name);
 			}
 		}
@@ -69,7 +69,7 @@
 }
 
 @each $name, $value in $heights {
-	.height-#{$name} {
+	.h-#{$name} {
 		height: $value;
 	}
 }
@@ -77,7 +77,7 @@
 @each $name in $responsive-height-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.height-#{$name}\@#{$breakpoint_label} {
+			.h-#{$name}\@#{$breakpoint_label} {
 				height: map-get($heights, $name);
 			}
 		}
@@ -87,7 +87,7 @@
 // Backgrounds
 
 @each $name, $value in $colors {
-	.background-#{$name} {
+	.bg-#{$name} {
 		background-color: $value;
 	}
 }
@@ -95,7 +95,7 @@
 @each $name in $responsive-color-classes {
 	@each $breakpoint_label, $breakpoint_value in $breakpoints {
 		@media (min-width: $breakpoint_value){
-			.background-#{$name}\@#{$breakpoint_label} {
+			.bg-#{$name}\@#{$breakpoint_label} {
 				background-color: map-get($colors, $name);
 			}
 		}
