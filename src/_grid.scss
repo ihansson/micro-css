@@ -1,0 +1,60 @@
+@include optional('grid') {
+	display: grid;
+}
+
+@include optional('grid-inline') {
+	display: inline-grid;
+}
+
+@if map-get($optional, 'grid') == true {
+	@each $gutter_label, $gutter_value in $gutters {
+		.#{$prefix}grid-#{$gutter_label} {
+			grid-column-gap: #{$gutter_value};
+			grid-row-gap: #{$gutter_value};
+		}
+	}
+}
+
+@include optional('grid-left') {
+	justify-content: start;
+}
+
+@include optional('grid-center') {
+	justify-content: center;
+}
+
+@include optional('grid-right') {
+	justify-content: end;
+}
+
+@include optional('grid-around') {
+	justify-content: space-around;
+}
+
+@include optional('grid-between') {
+	justify-content: space-between;
+}
+
+@include optional('grid-evenly') {
+	justify-content: space-evenly;
+}
+
+@include optional('grid-top') {
+	align-content: start;
+}
+
+@include optional('grid-middle') {
+	align-content: center;
+}
+
+@include optional('grid-bottom') {
+	align-content: end;
+}
+
+@include optional('grid-align-between') {
+	align-content: space-between;
+}
+
+@include optional('grid-align-evenly') {
+	align-content: space-evenly;
+}

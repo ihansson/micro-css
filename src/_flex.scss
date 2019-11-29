@@ -1,0 +1,81 @@
+@include optional('flex') {
+	display: flex;
+}
+
+@include optional('flex-grid') {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@if map-get($optional, 'flex-grid') == true {
+	@each $gutter_label, $gutter_value in $gutters {
+		.#{$prefix}flex-grid-#{$gutter_label} {
+			margin-left: -#{$gutter_value};
+			margin-bottom: -#{$gutter_value};
+			> * {
+				margin-left: #{$gutter_value};
+				margin-bottom: #{$gutter_value};
+			}
+		}
+	}
+}
+
+@include optional('flex-reverse') {
+	flex-direction: row-reverse;
+}
+
+@include optional('flex-column') {
+	flex-direction: column;
+}
+
+@include optional('flex-column=reverse') {
+	flex-direction: column-reverse;
+}
+
+@include optional('flex-left') {
+	justify-content: flex-start;
+}
+
+@include optional('flex-center') {
+	justify-content: center;
+}
+
+@include optional('flex-right') {
+	justify-content: flex-end;
+}
+
+@include optional('flex-around') {
+	justify-content: space-around;
+}
+
+@include optional('flex-between') {
+	justify-content: space-between;
+}
+
+@include optional('flex-top') {
+	align-items: flex-start;
+}
+
+@include optional('flex-middle') {
+	align-items: center;
+}
+
+@include optional('flex-bottom') {
+	align-items: flex-end;
+}
+
+@include optional('flex-baseline') {
+	align-items: baseline;
+}
+
+@include optional('flex-self-middle') {
+	align-self: center;
+}
+
+@include optional('flex-self-bottom') {
+	align-self: flex-end;
+}
+
+@include optional('flex-self-baseline') {
+	align-self: baseline;
+}

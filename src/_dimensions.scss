@@ -1,0 +1,89 @@
+// Height and Width
+
+@each $name, $value in $proportional_widths {
+	.#{$prefix}cw-#{$name} > * {
+		width: $value;
+	}
+	.#{$prefix}w-#{$name} {
+		width: $value;
+	}
+	@if map-get($optional, 'flex-grid') == true {
+		@each $gutter_label, $gutter_value in $gutters {
+			.#{$prefix}flex-grid-#{$gutter_label}.#{$prefix}cw-#{$name} > * {
+				width: calc(#{$value} - #{$gutter_value});
+			}
+			.#{$prefix}flex-grid-#{$gutter_label} .#{$prefix}w-#{$name} {
+				width: calc(#{$value} - #{$gutter_value});
+			}
+		}
+	}
+}
+
+@each $name in $responsive-proportional-width-classes {
+	@each $breakpoint_label, $breakpoint_value in $breakpoints {
+		@media (min-width: $breakpoint_value){
+			.#{$prefix}cw-#{$name}\@#{$breakpoint_label} > * {
+				width: map-get($proportional_widths, $name);
+			}
+			.#{$prefix}w-#{$name}\@#{$breakpoint_label} {
+				width: map-get($proportional_widths, $name);
+			}
+			@if map-get($optional, 'flex-grid') == true {
+				@each $gutter_label, $gutter_value in $gutters {
+					.#{$prefix}flex-grid-#{$gutter_label}.#{$prefix}cw-#{$name}\@#{$breakpoint_label} > * {
+						width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
+					}
+					.#{$prefix}flex-grid-#{$gutter_label} .#{$prefix}w-#{$name}\@#{$breakpoint_label} {
+						width: calc(#{map-get($proportional_widths, $name)} - #{$gutter_value});
+					}
+				}
+			}
+		}
+	}
+}
+
+@include map-class('w', 'max-width', $widths);
+@include map-class-responsive('w', 'max-width', $widths, $responsive-width-classes);
+
+@include map-class('h', 'height', $heights);
+@include map-class-responsive('h', 'height', $heights, $responsive-height-classes);
+
+// Margin & Padding
+
+@each $name, $value in $spacing {
+	.#{$prefix}mrg-#{$name} {
+		margin: $value 0;
+	}
+	.#{$prefix}pad-#{$name} {
+		padding: $value;
+	}
+	@each $location in $locations {
+		.#{$prefix}mrg-#{$location}-#{$name} {
+			margin-#{$location}: $value;
+		}
+		.#{$prefix}pad-#{$location}-#{$name} {
+			padding-#{$location}: $value;
+		}
+	}
+}
+
+@each $name in $responsive-spacing-classes {
+	@each $breakpoint_label, $breakpoint_value in $breakpoints {
+		@media (min-width: $breakpoint_value){
+			.#{$prefix}mrg-#{$name}\@#{$breakpoint_label} {
+				margin: map-get($spacing, $name) 0;
+			}
+			.#{$prefix}pad-#{$name}\@#{$breakpoint_label} {
+				padding: map-get($spacing, $name);
+			}
+			@each $location in $locations {
+				.#{$prefix}mrg-#{$location}-#{$name}\@#{$breakpoint_label} {
+					margin-#{$location}: map-get($spacing, $name);
+				}
+				.#{$prefix}pad-#{$location}-#{$name}\@#{$breakpoint_label} {
+					padding-#{$location}: map-get($spacing, $name);
+				}
+			}
+		}
+	}
+}
