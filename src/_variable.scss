@@ -1,4 +1,4 @@
-$prefix: '';
+$prefix: '' !default;
 
 // Optional
 
@@ -54,7 +54,7 @@ $optional: (
 	'radio': true,
 	'checkbox': true
 
-);
+) !default;
 
 // Breakpoints
 
@@ -62,14 +62,14 @@ $breakpoints: (
 	"l": 1200px,
 	"m": 900px,
 	"s": 640px
-);
+) !default;
 
 // Grid and Dimensions
 
 $gutters: (
 	's': 15px,
 	'l': 35px
-);
+) !default;
 
 $widths: (
 	"xxl": 1000px,
@@ -78,25 +78,25 @@ $widths: (
 	"m": 300px,
 	"s": 150px,
 	"xs": 50px
-);
+) !default;
 
-$responsive-width-classes: ();
+$responsive-width-classes: () !default;
 
 $proportional_widths: (
 	"1-2": 50%,
 	"1-3": 33.333%,
 	"1-4": 25%,
-);
+) !default;
 
-$responsive-proportional-width-classes: ("1-2", "1-3", "1-4");
+$responsive-proportional-width-classes: ("1-2", "1-3", "1-4") !default;
 
 $heights: (
 	"l": 500px,
 	"m": 250px,
 	"s": 100px,
-);
+) !default;
 
-$responsive-height-classes: ();
+$responsive-height-classes: () !default;
 
 // Spacing
 
@@ -104,11 +104,11 @@ $spacing: (
 	"l": 100px,
 	"m": 50px,
 	"s": 15px
-);
+) !default;
 
-$locations: ("top", "right", "bottom", "left");
+$locations: ("top", "right", "bottom", "left") !default;
 
-$responsive-spacing-classes: ();
+$responsive-spacing-classes: () !default;
 
 // Colors
 
@@ -117,16 +117,16 @@ $colors: (
 	"secondary": green,
 	"light": white,
 	"dark": black
-);
+) !default;
 
-$responsive-color-classes: ();
+$responsive-color-classes: () !default;
 
 $background-text-color: (
 	"primary": map-get($colors, 'light'),
 	"secondary": map-get($colors, 'light'),
 	"light": map-get($colors, 'dark'),
 	"dark": map-get($colors, 'light')
-);
+) !default;
 
 // Font Sizes
 
@@ -134,38 +134,38 @@ $font-sizes: (
 	"l": 36px,
 	"m": 22px,
 	"s": 16px
-);
+) !default;
 
-$responsive-font-sizes-classes: ();
+$responsive-font-sizes-classes: () !default;
 
 // Default Typography
 
-$global-font: 'Lexend Deca', sans-serif;
-$global-font-size: map-get($font-sizes, "s");
-$global-line-height: 1.75em;
+$global-font: 'Lexend Deca', sans-serif !default;
+$global-font-size: map-get($font-sizes, "s") !default;
+$global-line-height: 1.75em !default;
 
 // Buttons
 
-$global-button-padding: 6px 12px;
+$global-button-padding: 6px 12px !default;
 
 // Boxes
 
-$global-box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12);
-$global-box-radius: 6px;
-$global-box-padding: map-get($spacing, "s") (map-get($spacing, "s") * 1.5);
+$global-box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12) !default;
+$global-box-radius: 6px !default;
+$global-box-padding: map-get($spacing, "s") (map-get($spacing, "s") * 1.5) !default;
 
 
 // Form
 
-$global-form-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12);
-$global-form-border: 0px;
-$global-form-radius: 3px;
-$global-form-padding: 4px 12px;
-$global-form-height: 35px;
-$global-form-checkbox-size: 24px;
-$global-form-checkbox-inactive: #eee;
-$global-form-checkbox-active: map-get($colors, "primary");
+$global-form-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12) !default;
+$global-form-border: 0px !default;
+$global-form-radius: 3px !default;
+$global-form-padding: 4px 12px !default;
+$global-form-height: 35px !default;
+$global-form-checkbox-size: 24px !default;
+$global-form-checkbox-inactive: #eee !default;
+$global-form-checkbox-active: map-get($colors, "primary") !default;
 
 // Container
 
-$global-container-padding: map-get($spacing, "s");
+$global-container-padding: map-get($spacing, "s") !default;
